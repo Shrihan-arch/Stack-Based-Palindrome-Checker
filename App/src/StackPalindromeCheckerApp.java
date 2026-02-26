@@ -1,19 +1,26 @@
-import java.util.Stack;
 import java.util.Scanner;
+
 public class StackPalindromeCheckerApp {
     public static void main(String[] args) {
-        System.out.println("Welcome to Palindrome Checker App Management System");
-        String text = "madam";
+        Scanner sc = new Scanner(System.in);
 
-        String reversed = new StringBuilder(text).reverse().toString();
+        System.out.print("Enter a string: ");
+        String original = sc.nextLine();
 
-        if (text.equals(reversed)) {
-            System.out.println("The string is a palindrome.");
-        } else {
-            System.out.println("The string is not a palindrome.");
+        String reversed = "";
+
+        // Reverse string using for loop
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
+        // Compare original and reversed
+        if (original.equals(reversed)) {
+            System.out.println("The string is a Palindrome.");
+        } else {
+            System.out.println("The string is NOT a Palindrome.");
+        }
+
+        sc.close();
     }
 }
-
-
