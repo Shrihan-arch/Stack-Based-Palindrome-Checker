@@ -5,17 +5,27 @@ public class StackPalindromeCheckerApp {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a string: ");
-        String original = sc.nextLine();
+        String input = sc.nextLine();
 
-        String reversed = "";
+        // Convert string to character array
+        char[] arr = input.toCharArray();
 
-        // Reverse string using for loop
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        int start = 0;
+        int end = arr.length - 1;
+        boolean isPalindrome = true;
+
+        // Two-pointer comparison
+        while (start < end) {
+            if (arr[start] != arr[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        // Compare original and reversed
-        if (original.equals(reversed)) {
+        // Display result
+        if (isPalindrome) {
             System.out.println("The string is a Palindrome.");
         } else {
             System.out.println("The string is NOT a Palindrome.");
